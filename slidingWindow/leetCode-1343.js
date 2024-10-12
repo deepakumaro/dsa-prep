@@ -41,24 +41,20 @@ const numOfSubarrays = (arr, k, threshold) => {
 
   let lp = 0;
   let rp = k;
+  let currSum = 0;
   for (rp = 0; rp < arr.length; rp++) {
-    const windowSize = rp - lp + 1;
-    if (windowSize > k) {
-      window.shift();
-      lp++;
-    }
-    window.push(arr[rp]);
+    currSum += arr[rp];
 
-    if (window.length == k) {
-      const sum = window.reduce((a, cv) => a + cv);
-
-      if (sum / k >= threshold) {
+    let windowSize = rp - lp + 1;
+    if (windowSize >= k) {
+      if (currSum / k >= threshold) {
         res = res + 1;
       }
+      currSum -= arr[lp];
+      lp++;
     }
   }
-
   return res;
 };
 
-console.log(numOfSubarrays([2, 2, 2, 2, 5, 5, 5, 8], 3, 4));
+console.log(numOfSubarrays([11, 13, 17, 23, 29, 31, 7, 5, 2, 3], 3, 5));
