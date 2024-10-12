@@ -1,0 +1,8 @@
+
+
+windowSize = rp-lp+1 
+
+rp = right pointer
+lp = left pointer
+
+
