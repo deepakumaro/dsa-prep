@@ -1,0 +1,3 @@
+// break the problem in subproblem
+
+// sort the 1 val then 1st 2 val then 1st 3 val and so on ....
